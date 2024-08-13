@@ -39,7 +39,6 @@ Retype new password: "0000"
 #  * Management:     https://landscape.canonical.com
 #  * Support:        https://ubuntu.com/advantage
 
-
 # This message is shown once a day. To disable it please create the
 # /home/sherzad/.hushlogin file.
 
