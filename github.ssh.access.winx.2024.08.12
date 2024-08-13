@@ -299,7 +299,6 @@ cat github.ssh.access.winx.2024.08.12.sh
 # echo This is a vodka-bottle-documentation, sorry, no automation at this time, :-/
 # exit 1
 
-
 ##########################################################
 # # Windows Subsystem for Linux Installation
 ##########################################################
@@ -336,7 +335,6 @@ cat github.ssh.access.winx.2024.08.12.sh
 # # * Documentation:  https://help.ubuntu.com
 # # * Management:     https://landscape.canonical.com
 # # * Support:        https://ubuntu.com/advantage
-
 
 # # This message is shown once a day. To disable it please create the
 # # /home/sherzad/.hushlogin file.
@@ -601,7 +599,6 @@ cat github.ssh.access.winx.2024.08.12.sh
 # # #!/bin/sh
 # # echo This is a vodka-bottle-documentation, sorry, no automation at this time, :-/
 # # exit 1
-
 
 git add github.ssh.access.winx.2024.08.12.sh
 git status
