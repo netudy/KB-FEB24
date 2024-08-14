@@ -1,0 +1,253 @@
+#!/bin/sh
+echo This is a vodka-bottle-documentation, sorry, no automation at this time, :-/
+exit 1
+
+##########################################################
+# Windows Subsystem for Linux Installation
+##########################################################
+
+# - Open Windows PowerShell
+wsl --install -d ubuntu
+# The requested operation requires elevation.
+# Installing: Virtual Machine Platform
+# Virtual Machine Platform has been installed.
+# Installing: Windows Subsystem for Linux
+# Windows Subsystem for Linux has been installed.
+# Installing: Ubuntu
+# Ubuntu has been installed.
+# The requested operation is successful. Changes will not be effective until the system is rebooted.
+
+# - reboot computer
+# - after reboot Ubuntu cmd will pop up:
+
+# Ubuntu is already installed.
+# Launching Ubuntu...
+# Installing, this may take a few minutes...
+# Please create a default UNIX user account. The username does not need to match your Windows username.
+# For more information visit: https://aka.ms/wslusers
+Enter new UNIX username: "hiva"
+New password: "0000"
+Retype new password: "0000"
+# passwd: password updated successfully
+# Installation successful!
+# To run a command as administrator (user "root"), use "sudo <command>".
+# See "man sudo_root" for details.
+
+# Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 5.15.153.1-microsoft-standard-WSL2 x86_64)
+
+#  * Documentation:  https://help.ubuntu.com
+#  * Management:     https://landscape.canonical.com
+#  * Support:        https://ubuntu.com/advantage
+
+
+# This message is shown once a day. To disable it please create the
+# /home/hiva/.hushlogin file.
+
+# - Open WSL
+sudo apt update
+[sudo] password for hiva: "0000"
+# Get:1 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+# [...]
+# Fetched 9500 kB in 2s (4251 kB/s)
+# Reading package lists... Done
+# Building dependency tree... Done
+# Reading state information... Done
+# 112 packages can be upgraded. Run 'apt list --upgradable' to see them.
+
+sudo apt upgrade
+# Reading package lists... Done
+# Building dependency tree... Done
+# Reading state information... Done
+# Calculating upgrade... Done
+# The following NEW packages will be installed:
+#   ubuntu-pro-client
+# The following packages have been kept back:
+# [...]
+Do you want to continue? [Y/n] "y"
+# [...]
+
+# - install python
+sudo apt install python3-pip
+# Reading package lists... Done
+# Building dependency tree... Done
+# Reading state information... Done
+# The following additional packages will be installed:
+#   build-essential bzip2 cpp cpp-11 dpkg-dev fakeroot fontconfig-config
+#   fonts-dejavu-core g++ g++-11 gcc gcc-11 gcc-11-base javascript-common
+# [...]
+Do you want to continue? [Y/n] "y"
+
+##########################################################
+# install password generator and ssh
+##########################################################
+
+# - install password generator
+sudo apt install pwgen
+# Reading package lists... Done
+# Building dependency tree... Done
+# Reading state information... Done
+# python3-pip is already the newest version (22.0.2+dfsg-1ubuntu0.4).
+# 0 upgraded, 0 newly installed, 0 to remove and 5 not upgraded.
+# root@hiva:~# sudo apt install pwgen
+# Reading package lists... Done
+# Building dependency tree... Done
+# Reading state information... Done
+# The following NEW packages will be installed:
+#   pwgen
+# 0 upgraded, 1 newly installed, 0 to remove and 5 not upgraded.
+# Need to get 17.4 kB of archives.
+# After this operation, 53.2 kB of additional disk space will be used.
+# Get:1 http://archive.ubuntu.com/ubuntu jammy/universe amd64 pwgen amd64 2.08-2build1 [17.4 kB]
+# Fetched 17.4 kB in 0s (108 kB/s)
+# Selecting previously unselected package pwgen.
+# (Reading database ... 31447 files and directories currently installed.)
+# Preparing to unpack .../pwgen_2.08-2build1_amd64.deb ...
+# Unpacking pwgen (2.08-2build1) ...
+# Setting up pwgen (2.08-2build1) ...
+# Processing triggers for man-db (2.10.2-1) ...
+
+# - create a password 40 chars, numbers and symbols
+pwgen -y -n 40
+# ahx:u]aye?baish9Zeiquai0umah2Phah7hee(d(
+# di6egh4ahc6aewiex"a?eCheish/ei~w2xai5aej
+# aighoiS9gaeghie9aip'iequ:oophevah2eiNg5s
+# oGh7tu!r!aisheen1Ciu*leegh9Eep8aeg0phohv
+# Neo4Ahp7quoequ,ohf#ohngior6Oose1Ain9ein>
+# Mad7chae3shoa%wo|eG6eiTho~u6Choo7Dea9aeb
+# gahae5ooThu1aek6eiha8saejie}gie2ag5eeno3
+# Vah9iekoos4eih&e`h(o0chua8Wiej6oCh2aeLah
+# Ich+ieX2Ahpo"yeeyu3pof8xeu0owootooxai8fo
+# chahGauj/oong2ZapaiL7id0ohy9mah"t2ooHa6o
+# ohThahv!u3kaleiquo@cah2ahpoo5phogu/e5eed
+# aeb1aih5Chua3ahsiuW-eiHohth,ie9Ahngoogh4
+# Mu-ixei`Ghies0eeg0iagh1sie!ch6eeb0EB'aih
+# aeZeeWien4zeiCh6eew7vi6feeghie_Y<ohmeeth
+# choh*n9Uphu;shiePohhah6goh5chae6Do>ujahs
+# vohceize1phiuTh5yohche&hee3eeghec0aer}e7
+# choo5ieN*eit4uDuoBiaphoing+airu!k7xui~W$
+# Thao8ahfi1phe+a+m[o=r3tooz3ohfahth4yae1U
+# OGhee4bi5amaep1ip5yeiM4ahY5bah2Oochah^Je
+# oi_Z4aigaigh6eeHish`ohc@adu4ahjae8gi7ECo
+
+# - check if ssh service is running
+sudo service ssh status
+# Unit ssh.service could not be found.
+
+# - in wsl install openssh
+sudo apt install openssh-server
+# Reading package lists... Done
+# Building dependency tree... Done
+# Reading state information... Done
+# The following additional packages will be installed:
+#   libwrap0 ncurses-term openssh-sftp-server ssh-import-id
+# Suggested packages:
+#   molly-guard monkeysphere ssh-askpass
+# The following NEW packages will be installed:
+#   libwrap0 ncurses-term openssh-server openssh-sftp-server ssh-import-id
+# 0 upgraded, 5 newly installed, 0 to remove and 2 not upgraded.
+Need to get 799 kB of archives.
+# After this operation, 6157 kB of additional disk space will be used.
+Do you want to continue? [Y/n] "y"
+# Get:1 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 openssh-sftp-server amd64 1:8.9p1-3ubuntu0.10 [38.9 kB]
+# Get:2 http://archive.ubuntu.com/ubuntu jammy/main amd64 libwrap0 amd64 7.6.q-31build2 [47.9 kB]
+# Get:3 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 openssh-server amd64 1:8.9p1-3ubuntu0.10 [435 kB]
+# Get:4 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 ncurses-term all 6.3-2ubuntu0.1 [267 kB]
+# [...]
+
+# - create keypair
+ cd
+mkdir .ssh
+chmod 740 .ssh/
+ssh-keygen -t rsa -b 4096 -f ~/.ssh/dell
+mkdir: cannot create directory ‘.ssh’: File exists
+Generating public/private rsa key pair.
+Enter passphrase (empty for no passphrase): "ohThahv!u3kaleiquo@cah2ahpoo5phogu/e5eed"
+Enter same passphrase again: "ohThahv!u3kaleiquo@cah2ahpoo5phogu/e5eed"
+# Your identification has been saved in /root/.ssh/dell
+# Your public key has been saved in /root/.ssh/dell.pub
+# The key fingerprint is:
+# SHA256:WQVlC5efhiJBfzJmPm/+kNEhoe3s5BzZtuiSD7Y3Pxw root@hiva
+# The key's randomart image is:
+# +---[RSA 4096]----+
+# |       .. oo*.   |
+# |        .. B.o   |
+# |         .O =o.. |
+# |        .*.*.=+. |
+# |        S.o.B.+  |
+# |           B *E. |
+# |          o.X... |
+# |         .o*o.o  |
+# |          .+++o. |
+# +----[SHA256]-----+
+
+# - start ssh service
+sudo service ssh start
+
+# - allow ssh in firewall
+sudo ufw allow ssh
+# Rules updated
+# Rules updated (v6)
+
+##########################################################
+# upload public keypair to github
+##########################################################
+
+# - install git
+sudo apt install git
+# Reading package lists... Done
+# Building dependency tree... Done
+# Reading state information... Done
+# git is already the newest version (1:2.34.1-1ubuntu1.11).
+# git set to manually installed.
+# 0 upgraded, 0 newly installed, 0 to remove and 5 not upgraded.
+# - fetch pubkey
+cat .ssh/dell.pub
+# ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCLWMoRLuxM1PJIODtdQk30nW8xhJ8vxQnzSna/PzkEXxwawW+Nz/OJ7AqyiFMReLBTn5PZrjVPcoCSrX0TDE0GXlN38CKtThFl9iWhrdEd4/H4jjwVJUVbstbtxvCvmn+eyPMSNhOpM3ARAfleHARCRS1K+RRDQiRy9MMDKHZXle2j+NqoTerlxAGChxaS2X/vo8GWujQ/TH4S/ul5cNhCUjvNN8e0XS0lx2eweRdW+EK4rKviydpUiTlpNEZkSJBOcqD2QzVFTnyAtIYt4SGfK83O9cpWfheayxvC2lR0ncW8kBtTvtf6l+NAk/0VxCHp0qzFtPwwUGc4xdc4ylG8yJde2DZtm+7sgg7mbu3vZF+Iwv5Cy05eGbKGaKRv971NBwUVInOyt9Zh9Kg3yQrbiITMHPMzVvAeTQCMS8ya7vhVqvG0kmmwFLWE+kEeN134Wi9iDZLzb8J8GFr/s+TOEhzEPcmdaEvmOIezlZQz/PVcTFIE8tGdmxlRz/BlG4F4Qkr+zfpn4QscaflQJPcOAO579Im000Kfd84soTF00l83NSwv1lO7E05aH8DiSTWehbYaWx4t6cS9MvN9SP330J6Vg9nwmsPVNBt8Qhgl6QU1KTnJkXqBXA/ufGuie32X7MrfjEb/XvKjYfPUDT4AF5M7ZlOraTzXgjkvLxjUTw== root@hiva
+# - upload to github
+"https://github.com/settings/ssh/new"
+
+# Add new SSH Key
+# Title
+"dell"
+
+# Key type
+"[Authentication Key↕]"
+
+# Key
+"****************"
+
+"Add SSH key"
+
+# - create ssh config file
+cat <<"EOF" > ~/.ssh/config
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/dell
+EOF
+
+# - verify 
+cat ~/.ssh/config
+# Host github.com
+#   HostName github.com
+#   User git
+#   IdentityFile ~/.ssh/dell
+
+# - Create source directory
+cd
+mkdir src
+cd src
+
+##########################################################
+# clone and push to github
+##########################################################
+
+# - Clone repo
+git clone git@github.com:JensenEducationKista/KB-FEB24.git
+
+# - Push changes to remote repository
+cd KB-FEB24
+mkdir hiva
+cd hiva
+
+
