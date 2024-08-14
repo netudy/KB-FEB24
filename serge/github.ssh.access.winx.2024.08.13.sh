@@ -40,7 +40,7 @@ Retype new password: "7777"
 #  * Support:        https://ubuntu.com/advantage
 
 # This message is shown once a day. To disable it please create the
-# /home/aliz/.hushlogin file.
+# /home/serge/.hushlogin file.
 # serge@Dell:~$
 
 # - Open WSL
