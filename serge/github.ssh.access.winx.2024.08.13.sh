@@ -264,3 +264,38 @@ git status
 git checkout -b "serge_doc_verification"
 mkdir serge
 cd serge
+
+# - IMPORTANT:
+# - COPY AND PASTE ABOVE IN A NEW FILE, USE TEXT EDITOR OF CHOICE
+
+##########################################################
+# push to remote branch
+##########################################################
+
+git add github.ssh.access.winx.2024.08.13.sh 
+git status
+# On branch serge_doc_verification
+# Changes to be committed:
+#   (use "git restore --staged <file>..." to unstage)
+#         new file:   github.ssh.access.winx.2024.08.13.sh
+
+git config --global user.name "serge kar"
+git config --global user.email no@email.com
+git commit -am "correct missing info, remove useless shit"
+
+git push --set-upstream origin serge_doc_verification
+Enter passphrase for key '/home/serge/.ssh/dell': "**********"
+# Enumerating objects: 5, done.
+# Counting objects: 100% (5/5), done.
+# Delta compression using up to 4 threads
+# Compressing objects: 100% (4/4), done.
+# Writing objects: 100% (4/4), 4.41 KiB | 1.10 MiB/s, done.
+# Total 4 (delta 1), reused 0 (delta 0), pack-reused 0
+# remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+# remote:
+# remote: Create a pull request for 'serge_doc_verification' on GitHub by visiting:
+# remote:      https://github.com/JensenEducationKista/KB-FEB24/pull/new/serge_doc_verification
+# remote:
+# To github.com:JensenEducationKista/KB-FEB24.git
+#  * [new branch]      serge_doc_verification -> serge_doc_verification
+# Branch 'serge_doc_verification' set up to track remote branch 'serge_doc_verification' from 'origin'.
