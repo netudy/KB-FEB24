@@ -41,7 +41,7 @@ Retype new password: "7777"
 
 # This message is shown once a day. To disable it please create the
 # /home/aliz/.hushlogin file.
-# aliz@AliZ:~$
+# serge@Dell:~$
 
 # - Open WSL
 sudo apt update
