@@ -281,5 +281,3 @@ cd hamed
 
 # - IMPORTANT
 # - Create new file using text editor of choice, then push it to github
-
-
