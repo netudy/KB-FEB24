@@ -288,7 +288,7 @@ git status
 
 cd sherzad
 git checkout -b "sherzad_doc_verification"
-# Switched to a new branch 'francisco_doc_verification'
+# Switched to a new branch 'sherzad_doc_verification'
 
 # - IMPORTANT:
 # - Create a file with "nano" or "vi", paste this documentation there
