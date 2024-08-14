@@ -318,3 +318,41 @@ git status
 
 git checkout -b "hlibko_doc_verification"
 # Switched to a new branch 'hlibko_doc_verification'
+# - IMPORTANT:
+# - Create a file with "nano" or "vi", paste this documentation there
+
+# - then add newly created file
+
+# - verify file
+cat github.ssh.access.winx.2024.08.14.sh
+git add *
+git status
+# On branch hlibko_doc_verification
+# Changes to be committed:
+#   (use "git restore --staged <file>..." to unstage)
+#         new file:   github.ssh.access.winx.2024.08.14.sh
+
+git config --global user.name "Hlib Kochubei"
+git config --global user.email "hlib.kochubei@gmail.com"
+
+git commit -am "Make changes to previous documentation"
+git status
+# On branch hlibko_doc_verification
+# nothing to commit, working tree clean
+
+git push --set-upstream origin hlibko_doc_verification
+# Enter passphrase for key '/home/hlibko/.ssh/DESKTOP-R272VD1':
+# Enumerating objects: 5, done.
+# Counting objects: 100% (5/5), done.
+# Delta compression using up to 4 threads
+# Compressing objects: 100% (4/4), done.
+# Writing objects: 100% (4/4), 5.45 KiB | 5.45 MiB/s, done.
+# Total 4 (delta 1), reused 0 (delta 0), pack-reused 0
+# remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+# remote:
+# remote: Create a pull request for 'hlibko_doc_verification' on GitHub by visiting:
+# remote:      https://github.com/JensenEducationKista/KB-FEB24/pull/new/hlibko_doc_verification
+# remote:
+# To github.com:JensenEducationKista/KB-FEB24.git
+#  * [new branch]      hlibko_doc_verification -> hlibko_doc_verification
+# Branch 'hlibko_doc_verification' set up to track remote branch 'hlibko_doc_verification' from 'origin'.
