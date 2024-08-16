@@ -211,7 +211,7 @@ cat .ssh/dell.pub
 
 # Add new SSH Key
 # Title
-"dell"
+"serge"
 
 # Key type
 "[Authentication Key↕]"
