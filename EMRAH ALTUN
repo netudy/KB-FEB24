@@ -1,0 +1,256 @@
+#!/bin/sh
+echo This is a vodka-bottle-documentation, sorry, no automation at this time, :-/
+exit 1
+
+##########################################################
+# Windows Subsystem for Linux Installation
+##########################################################
+
+# - Open Windows PowerShell
+wsl --install -d ubuntu
+# The requested operation requires elevation.
+# Installing: Virtual Machine Platform
+# Virtual Machine Platform has been installed.
+# Installing: Windows Subsystem for Linux
+# Windows Subsystem for Linux has been installed.
+# Installing: Ubuntu
+# Ubuntu has been installed.
+# The requested operation is successful. Changes will not be effective until the system is rebooted.
+
+# - reboot computer
+# - after reboot Ubuntu cmd will pop up:
+
+# Ubuntu is already installed.
+# Launching Ubuntu...
+# Installing, this may take a few minutes...
+# Please create a default UNIX user account. The username does not need to match your Windows username.
+# For more information visit: https://aka.ms/wslusers
+Enter new UNIX username: "emrah"
+New password: "0000"
+Retype new password: "0000"
+# passwd: password updated successfully
+# Installation successful!
+# To run a command as administrator (user "root"), use "sudo <command>".
+# See "man sudo_root" for details.
+
+# Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 5.15.153.1-microsoft-standard-WSL2 x86_64)
+
+#  * Documentation:  https://help.ubuntu.com
+#  * Management:     https://landscape.canonical.com
+#  * Support:        https://ubuntu.com/advantage
+
+
+# This message is shown once a day. To disable it please create the
+# /home/aliz/.hushlogin file.
+# aliz@AliZ:~$
+
+# - Open WSL
+sudo apt update
+[sudo] password for emrah: "0000"
+# Hit:1 http://archive.ubuntu.com/ubuntu jammy InRelease
+# # [...]
+# Reading package lists... Done
+# Building dependency tree... Done
+# Reading state information... Done
+# 1 package can be upgraded. Run 'apt list --upgradable' to see it.
+
+sudo apt upgrade
+
+# # Reading package lists... Done
+# Building dependency tree... Done
+# Reading state information... Done
+# Calculating upgrade... Done
+# 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+# [...]
+Do you want to continue? [Y/n] "y"
+# Get:1 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 busybox-static amd64 1:1.30.1-7ubuntu3.1 [1019 kB]
+# Fetched 1019 kB in 1s (771 kB/s)
+# (Reading database ... 34339 files and directories currently installed.)
+# Preparing to unpack .../busybox-static_1%3a1.30.1-7ubuntu3.1_amd64.deb ...
+# Unpacking busybox-static (1:1.30.1-7ubuntu3.1) over (1:1.30.1-7ubuntu3) ...
+# Setting up busybox-static (1:1.30.1-7ubuntu3.1) ...
+# Processing triggers for man-db (2.10.2-1) ...
+# # [...]
+
+# - install python
+sudo apt install python3-pip
+# #Reading package lists... Done
+# Building dependency tree... Done
+# Reading state information... Done
+# python3-pip is already the newest version (22.0.2+dfsg-1ubuntu0.4).
+# 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+# # [...]
+Do you want to continue? [Y/n] "y"
+
+##########################################################
+# install password generator and ssh
+##########################################################
+
+# - install password generator
+sudo apt install pwgen
+# Reading package lists... Done
+# Building dependency tree... Done
+# Reading state information... Done
+# pwgen is already the newest version (2.08-2build1).
+# 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+pwgen -y -n 40
+# #ohTh0Ohh`a4ohviLohng9luRee2oomaetae?kee9
+# oth-eu6iethiheihie4Tiey*eiMeib6sheeTohqu
+# ooyo}angiveaPaingieV5Toox3xah6Yovacheebo
+# EpeaniuChie2Iethehaoquoh1tei^Diumai<dae6
+# eecix6ooDae\voozie1cegi0iK/eeth4fe8eiV1a
+# uokeil1aipoloh7kiz[ah[l8kae9Aepu0ung9Sha
+# yeet@a2aeshah4eHu]qu1ohK5kieRui;haiH~eDi
+# ohe%afuuY#ubooqueshah1ooj"oh]f1phootaeHo
+# Eijahn7oe0igh4emoo9ianei3Vaeceech#u|o%Gu
+# us4TheoJee?hii.neikai7ia8raivieJae3inie9
+# faer@iQuiekaeMeejoh0lee$v3aN8oothaePheej
+# xa$gh0shog1phoxiegheNgi4ziedain,ait8veet
+# iecai6es.e3el`a2audu~seith7vee@Y2yeiYohk
+# oopohj3aiWei9ohw(eeh8wahthah7ahd0au+quae
+# PuNgeeShaek1agh%ie3sahsh0Peiceik4kee7ueT
+# of6Ieho5ehaJa\v8Caa3sai6Rae`sha`uf6pahri
+# chei3uor5thish;uph-eghi5che3duat8Esiuyoh
+# di8aich3rae{k;ie-sou4Aquie#ph1aepaex9zat
+# aik2oolah3hi1ou;soyaek@iephat`oo7eQu2Cha
+# Ohl1aiphie4inga5ighoosei2eikoh'Voos,aedo
+
+# - check if ssh service is running
+sudo service ssh status
+# * Starting OpenBSD Secure Shell server sshd                   [ OK ]
+sudo apt install openssh-server
+# Reading package lists... Done
+# Building dependency tree... Done
+# Reading state information... Done
+# openssh-server is already the newest version (1:8.9p1-3ubuntu0.10).
+# 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+[sudo] password for emrah "0000"
+
+# # Reading package lists... Done
+# Building dependency tree... Done
+# Reading state information... Done
+# openssh-server is already the newest version (1:8.9p1-3ubuntu0.10).
+# 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Do you want to continue? [Y/n] "y"
+# Get:1 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 openssh-sftp-server amd64 1:8.9p1-3ubuntu0.10 [38.9 kB]
+# # [...]
+# - create keypair
+
+cd
+mkdir .ssh
+chmod 740 .ssh/
+ssh-keygen -t rsa -b 4096 -f ~/.ssh/dell
+Enter passphrase (empty for no passphrase): "Ohl1aiphie4inga5ighoosei2eikoh'Voos,aedo"
+Enter same passphrase again: "jie5ahF" Ohl1aiphie4inga5ighoosei2eikoh'Voos,aedo"
+# Your identification has been saved in /home/emrah/.ssh/dell
+# Your public key has been saved in /home/emrah/.ssh/dell.pub
+# The key fingerprint is:
+# SHA256:BYiC4nbNdl8x8U7rN1M6hNXs5YPVTI5J4N+BmQcGsws emrah@emrahaltun
+# The key's randomart image is:
+# +---[RSA 4096]----+
+# | .   . ..  +++. .|
+# |o . . .  . +=.=O.|
+# |o  .o    E..+*++B|
+# | o . + . ...++=+o|
+# |. . . . S ...+o.=|
+# |         .  .. .o|
+# |             .o+ |
+# |              ..o|
+# |                 |
+# +----[SHA256]-----+
+sudo service ssh start
+
+# * * Starting OpenBSD Secure Shell server sshd                         [ OK ]                  [ OK ]                  [ OK ]
+sudo ufw allow ssh
+# # Skipping adding existing rule
+# Skipping adding existing rule (v6)
+
+##########################################################
+# upload public keypair to github
+################
+
+
+sudo apt install git
+
+# # Reading package lists... Done
+# Building dependency tree... Done
+# Reading state information... Done
+# git is already the newest version (1:2.34.1-1ubuntu1.11).
+# 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+cat .ssh/dell.pub
+# ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC/HEDQA8dhh97eCuQAOExkN17ZKCE+9w1lAlKDSfTQ3+kF+S/D7XqKc368hEm7s8pW1Jp2x/5hrg0a7jG2dsq4s2d0rmLFkWtkrAstQTMrQBlvoL+ep9OL8o0CuGK540RS80ppDSlnvcMu8OTm4AeA/+Rx7x29JX8+f7ARNux2QXW98Oa6rnAEznPPl1ZSeB/YIQyM/9DpD72wFr1oDWs5+mZd+MVxHh88BevqLacTVT6NU7KiAmwt+thssg6jfsujw/4pow6QNddDaqy1z5+WWPe/eZYVWATET7Jo1yzz1Obd39N9kAk/+7PyzkU/EZFUTPjr1FgxV1b8hGnu2Cf5OFg4ShLoUQ5gVRDys1H4McUz8CMJQ9QTMM3NKKilI4HtZBxhjv/FFq9me2/HPpmebkxNdxgz4m13vHs18C0Y4lDwpzQbhvFP1ald2Bu/tBfeBQTaaYWJluo6t9cgTF7FwYiNYa1IUX6j7tBf3//pAgTCqjtJGSdw2PE3EwinL9vVVH3+EDDqYRK3YNf4pBZOjojAmyyUbXZPiF7UnPbq+9Fkn4e6zpoD1Q7t97Ri5QDZ0FPBsr2GjAGvRI+aiyCySyodhWEbrdNaZtOYGWsK0SVnEJAbDm+GOVF64t8KKsZUdxkPWgduaSigDDM4K8WY1Z+4rMTWiMXybs3Avebu+Q== emrah@emrahaltun
+
+# - upload to github
+"https://github.com/settings/ssh/new"
+
+# Add new SSH Key
+# Title
+"dell.pub"
+
+# Key type
+"[Authentication Key↕]"
+
+# Key
+"****************"
+
+"Add SSH key"
+
+# - create ssh config file
+cat <<"EOF" > ~/.ssh/config
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/dell.pub
+EOF
+
+# - Create source directory
+cd
+mkdir src
+cd src
+
+##########################################################
+# clone and push to github
+##########################################################
+
+# - Clone repo
+git clone git@github.com:JensenEducationKista/KB-FEB24.git
+Cloning into 'KB-FEB24'...
+# # The authenticity of host 'github.com (140.82.121.3)' can't be established.
+# ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
+# This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? "yes"
+# Warning: Permanently added 'github.com' (ED25519) to the list of known hosts.
+Enter passphrase for key '/home/emrah/.ssh/dell': "Ohl1aiphie4inga5ighoosei2eikoh'Voos,aedo"
+# remote: Enumerating objects: 49, done.
+# remote: Counting objects: 100% (49/49), done.
+# remote: Compressing objects: 100% (42/42), done.
+# remote: Total 49 (delta 19), reused 21 (delta 3), pack-reused 0 (from 0)
+# Receiving objects: 100% (49/49), 29.27 KiB | 389.00 KiB/s, done.
+# Resolving deltas: 100% (19/19), done.cd KB-FEB24
+
+cd KB-FEB24
+mkdir emrah
+cd
+cd src/KB-FEB24/
+git status
+# On branch main
+# Your branch is up to date with 'origin/main'.
+
+# nothing to commit, working tree clean
+
+cd emrah
+git checkout -b "emrah_doc_verification"
+# Switched to a new branch 'emrah_doc_verification'
+
+# - IMPORTANT:
+# - Create a file with "nano" or "vi", paste this documentation there
+
+# - then add newly created file
+
+# - verify file
+cat github.ssh.access.winx.2024.08.13.sh
+# #!/bin/sh
+# echo This is a vodka-bottle-documentation, sorry, no automation at this time, :-/
+# exit 1
