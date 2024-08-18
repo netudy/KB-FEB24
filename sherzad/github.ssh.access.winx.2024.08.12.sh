@@ -288,7 +288,7 @@ git status
 
 cd sherzad
 git checkout -b "sherzad_doc_verification"
-# Switched to a new branch 'francisco_doc_verification'
+# Switched to a new branch 'sherzad_doc_verification'
 
 # - IMPORTANT:
 # - Create a file with "nano" or "vi", paste this documentation there
@@ -299,5 +299,3 @@ git status
 # Changes to be committed:
 #   (use "git restore --staged <file>..." to unstage)
 #         new file:   github.ssh.access.winx.2024.08.12.sh
-
-
