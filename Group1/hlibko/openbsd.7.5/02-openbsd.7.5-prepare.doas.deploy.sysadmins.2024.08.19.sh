@@ -41,25 +41,11 @@ useradd -m hlibko
 usermod -G wheel hlibko
 chsh -s /usr/local/bin/bash hlibko
 
-ssh-keygen -t rsa -b 4096 -f ~/.ssh/authorized_keys -C `hostname`
-# Your identification has been saved in /root/.ssh/authorized_keys
-# Your public key has been saved in /root/.ssh/authorized_keys.pub
-# The key fingerprint is:
-# SHA256:S0TlHh07aPXkhMlLSQ1Uj4ZOaI/+9ClpBckEVKbczaM fwa.my.domain
-# The key's randomart image is:
-# +---[RSA 4096]----+
-# |        .o+*OB+  |
-# |       . o OB@.o |
-# |        . X+BoO .|
-# |       . + *=+ . |
-# |        S o E.   |
-# |       . o    .  |
-# |        . . .o   |
-# |           o+. . |
-# |           ...o  |
-# +----[SHA256]-----+
-cat authorized_keys.pub
-# ssh-rsa AAAAB3********
+# Insert the key created in 1 lab (Ubuntu)
+cat <<"EOF" > /home/hlibko/.ssh/authorized_keys
+ssh-rsa AAA****
+EOF
+
 chmod 750 /home/hlibko/
 sha256 /home/hlibko/.ssh/authorized_keys
-# SHA256 (/home/hlibko/.ssh/authorized_keys) = e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+# SHA256 (/home/hlibko/.ssh/authorized_keys) = af6ba092fd04ff4ca61fb9c1fac628b437cab48eca2182230b588cfd2fc1b99f
