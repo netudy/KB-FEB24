@@ -42,11 +42,10 @@ Retype new password: "0000"
 
 # This message is shown once a day. To disable it please create the
 # /home/banoo/.hushlogin file.
-# aliz@AliZ:~$
 
 # - Open WSL
 sudo apt update
-[sudo] password for aliz: "0000"
+[sudo] password for banoo: "0000"
 # Get:1 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
 # [...]
 # Fetched 31.8 MB in 24s (1305 kB/s)
@@ -231,8 +230,8 @@ mkdir src
 cd src
 
 # - Clone repo
-git clone git@github.com:JensenEducationKista/KB-SEP23.git
-# Cloning into 'KB-SEP23'...
+git clone git@github.com:JensenEducationKista/KB-FEB24.git
+# Cloning into 'KB-FEB24'...
 Enter passphrase for key '/home/banoo/.ssh/hp.envy': "******"
 # remote: Enumerating objects: 20, done.
 # remote: Counting objects: 100% (20/20), done.
@@ -245,7 +244,6 @@ Enter passphrase for key '/home/banoo/.ssh/hp.envy': "******"
 cd KB-FEB24/Group1
 mkdir banoo
 cd banoo
-cd
 cd src/KB-FEB24/
 git status
 # On branch main
@@ -255,7 +253,7 @@ git status
 #   (use "git add <file>..." to include in what will be committed)
 
 # nothing added to commit but untracked files present (use "git add" to track)
-git checkout -b "banoo_doc_verification"
+git checkout -b "banoo-doc-verification"
 git add *
 git status
 # On branch banoo_doc_verification
@@ -271,4 +269,4 @@ git commit -am "verify previous documentation"
 #   (use "git push" to publish your local commits)
 
 # nothing to commit, working tree clean
-git push --set-upstream origin banoo_doc_verification
+git push --set-upstream origin banoo-doc-verification
