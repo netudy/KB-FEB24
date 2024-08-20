@@ -1,0 +1,267 @@
+#!/bin/sh
+echo This is a vodka-bottle-documentation, sorry, no automation at this time, :-/
+exit 1
+
+##########################################################
+# Windows Subsystem for Linux Installation
+##########################################################
+
+# - Open Windows PowerShell
+wsl --install -d ubuntu
+# The requested operation requires elevation.
+# Installing: Virtual Machine Platform
+# Virtual Machine Platform has been installed.
+# Installing: Windows Subsystem for Linux
+# Windows Subsystem for Linux has been installed.
+# Installing: Ubuntu
+# Ubuntu has been installed.
+# The requested operation is successful. Changes will not be effective until the system is rebooted.
+
+# - reboot computer
+# - after reboot Ubuntu cmd will pop up:
+
+# Ubuntu is already installed.
+# Launching Ubuntu...
+# Installing, this may take a few minutes...
+# Please create a default UNIX user account. The username does not need to match your Windows username.
+# For more information visit: https://aka.ms/wslusers
+Enter new UNIX username: "muhannad2024.predator"
+New password: "xee\Haeghei:Sh9Seeghaeb~iequohpei?Zimuba"
+Retype new password: "xee\Haeghei:Sh9Seeghaeb~iequohpei?Zimuba"
+# passwd: password updated successfully
+# Installation successful!
+# To run a command as administrator (user "root"), use "sudo <command>".
+# See "man sudo_root" for details.
+
+# Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 5.15.153.1-microsoft-standard-WSL2 x86_64)
+
+#  * Documentation:  https://help.ubuntu.com
+#  * Management:     https://landscape.canonical.com
+#  * Support:        https://ubuntu.com/advantage
+
+
+# This message is shown once a day. To disable it please create the
+# /home/aliz/.hushlogin file.
+# aliz@AliZ:~$
+
+# - Open WSL
+sudo apt update
+[sudo] password for muhannad2024: "0000"
+# Hit:1 http://security.ubuntu.com/ubuntu jammy-security InRelease
+# Hit:2 http://archive.ubuntu.com/ubuntu jammy InRelease
+# Hit:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease
+# Hit:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease
+# Reading package lists... Done
+# Building dependency tree... Done
+# Reading state information... Done
+# All packages are up to date.
+
+sudo apt upgrade
+# Reading package lists... Done
+# Building dependency tree... Done
+# Reading state information... Done
+# Calculating upgrade... Done
+# 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+# - install python
+sudo apt install python3-pip
+# Reading package lists... Done
+# Building dependency tree... Done
+# Reading state information... Done
+# python3-pip is already the newest version (22.0.2+dfsg-1ubuntu0.4).
+# 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+##########################################################
+# install password generator and ssh
+##########################################################
+
+# - install password generator
+sudo apt install pwgen
+# Reading package lists... Done
+# Building dependency tree... Done
+# Reading state information... Done
+# pwgen is already the newest version (2.08-2build1).
+# 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+# - create a password 40 chars, numbers and symbols
+pwgen -y -n 40
+# oovoo0ahwongew8iedo1Ohcahwohk0Eiw|oh9yee
+# tooCe4She5eih;eoch8chu5ahl@ai\J3Quah$z'i
+# aey*ee5si5uak_oi2Doov`ie}r4ooz2oi3oyapoa
+# aidui^Se7Taghio0shiXah[f(ai1Edaey6Ke^o*v
+# aiDie0eeNgohboghiexe+e\H2uwu8eiv4aighai4
+# eiChe0chahHap6eish2gou~wei6iaSh{aekahshe
+# quaip^i6Lae;ph0loes4pah8aegeizee9Thaica|
+# due2me4shi3ha)iraiki7Eilei0Koofoh7aesh0e
+# oj%ur4Booyai>rei]hozun5ohGeed7jeebadoSo?
+# aePei4nei8fi^u2heeJeevee4pei7Lohsh0zee2o
+# EiYoh1ub(ahBisi8xuathaajaidohgebae.P7rei
+# Aekitae5ohHox7jei8Moov[ah4hai8Niefeiv_oh
+# eengeeSuiP2ohr7gien3oip5umaebei>kee8fieK
+# veeL^ea5ietoh0leeQue2ang+eezegoo9eipae4j
+# Ul|ie3phuwahb]ohnei6uku7ohf2aoGheong7tii
+# aeZaP4ohm5dahc0ieh3oomoo6Zae;Jie|t#e7go4
+# Chei2eikie6uyei5xee4eiT%aeng5hoogh%ahNgu
+# ohxiethahwa8Thohf{aih9Udiesoo;raojooth0k
+# eikaiTh*aiY^ahmoh2eed/o3boh,X#ah1aed3poh
+# Thoope4iel,e$jaisieph7tohNa9yach3ahs6aog
+# - check if ssh service is running
+sudo service ssh status
+# ● ssh.service - OpenBSD Secure Shell server
+#      Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
+#      Active: active (running) since Sun 2024-08-18 15:16:38 CEST; 24h ago
+#        Docs: man:sshd(8)
+#              man:sshd_config(5)
+#     Process: 200 ExecStartPre=/usr/sbin/sshd -t (code=exited, status=0/SUCCESS)
+#    Main PID: 266 (sshd)
+#       Tasks: 1 (limit: 9353)
+#      Memory: 4.7M
+#      CGroup: /system.slice/ssh.service
+#              └─266 "sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups"
+
+# Aug 18 15:16:38 LAPTOP-GNUFP4KP systemd[1]: Starting OpenBSD Secure Shell server...
+# Aug 18 15:16:38 LAPTOP-GNUFP4KP sshd[266]: Server listening on 0.0.0.0 port 22.
+# Aug 18 15:16:38 LAPTOP-GNUFP4KP sshd[266]: Server listening on :: port 22.
+# Aug 18 15:16:38 LAPTOP-GNUFP4KP systemd[1]: Started OpenBSD Secure Shell server.
+
+# - in wsl install openssh
+sudo apt install openssh-server
+# Reading package lists... Done
+# Building dependency tree... Done
+# Reading state information... Done
+# openssh-server is already the newest version (1:8.9p1-3ubuntu0.10).
+# 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+cd
+mkdir .ssh
+chmod 740 .ssh/
+ssh-keygen -t rsa -b 4096 -f ~/.ssh/muhannad2024.predator
+Generating public/private rsa key pair.
+Enter passphrase (empty for no passphrase): "oovoo0ahwongew8iedo1Ohcahwohk0Eiw|oh9yee"
+Enter same passphrase again: "oovoo0ahwongew8iedo1Ohcahwohk0Eiw|oh9yee"
+# Your identification has been saved in /home/muhannad2024/.ssh/muhannad2024.predator
+# Your public key has been saved in /home/muhannad2024/.ssh/muhannad2024.predator.pub
+# The key fingerprint is:
+# SHA256:kLyHxPRByjszf3bZXmCf04asjYrEUvkKoazF91R2dbY muhannad2024@LAPTOP-GNUFP4KP
+# The key's randomart image is:
+# +---[RSA 4096]----+
+# |      ..o        |
+# |     = + .       |
+# |      O .     . o|
+# |     . = .   . o.|
+# |      O S o . oE |
+# |   o . X + . = +o|
+# |    = + = + o +o=|
+# |   o . * = . = o.|
+# |  .     + ..o o  |
+# +----[SHA256]-----+
+
+# - start ssh service
+sudo service ssh start
+
+# - allow ssh in firewall
+sudo ufw allow ssh
+# Skipping adding existing rule
+# Skipping adding existing rule (v6)
+
+##########################################################
+# upload public keypair to github
+##########################################################
+
+# - install git
+sudo apt install git
+# Reading package lists... Done
+# Building dependency tree... Done
+# Reading state information... Done
+# git is already the newest version (1:2.34.1-1ubuntu1.11).
+# 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
+# - fetch pubkey
+cat .ssh/muhannad2024.predator.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC1pBsCxJuld2PzxpZNIAArEGmYxHlObuPLZlP7XkpdBJiHdThYY56NceSwBXvm8EudH3dtkeybiEEefCsFAKHn1bIGdHiay0SU7lYnqc1iEG0G2IgG9lT0OWUGf37nVAEJq+29HmfwVRb8wm/ZhxUboZakH2vDJcmb8oduQbsQsgl5kAh3TtYN9OGSx0aP32gZbrUcLwfrOj2YB5yZnl5E1iea/UkKGT4xvKCJryOxNSm7EP3WytVeBnPyBvoDIDejFKAFTeN9/OYtMXPIK3InJTMGUcyAhAonXyR7Cd9NYRsvuj315N8HZB9bbVU+h7uu5AB7MJgl15/gy1//KNS6IXJxjW2MSZromC0ea7+v4HOD62i0qcvQQcWm02NV/h+1njCSPm2ImNzvjGhsTRL3ASz/qKYUosb40nPxUUwmWgLKAnlFxQwHdYLjWm7OE6ogjtk/jE4Gm9oajJZ809BEyhh/UweD7WMd42MQm2W9Vw+TTgrJwuIZROibbru2UOI6Xr0SaUJTq4rrBGVwdKUgdntN/DKF0RIXsgsBZB+s7TXrXGxfAka8fh2ibWj8mfQwcSUbykycSSND/nU2YrzHQ3wwxlMGm80RyzkjWSoQltv0z32p91X9hOu5YYkSsTUM2MsclieUViiT4vGVTzi4VcLbmGiXpoyiCJDhKu+KwQ== muhannad2024@LAPTOP-GNUFP4KP
+# ****************
+
+# - upload to github
+"https://github.com/settings/ssh/new"
+
+# Add new SSH Key
+# Title
+"neckel.muhannad2024.predator"
+
+# Key type
+"[Authentication Key↕]"
+
+# Key
+"****************"
+
+"Add SSH key"
+
+# - create ssh config file
+cat <<"EOF" > ~/.ssh/config
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/muhannad2024.predator
+EOF
+
+# - Create source directory
+cd
+mkdir src
+cd src
+
+# - Clone repo
+git clone git@github.com:JensenEducationKista/KB-FEB24.git
+# Cloning into 'KB-FEB24'...
+# The authenticity of host 'github.com (140.82.121.3)' can't be established.
+# ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
+# This key is not known by any other names
+# Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+# Warning: Permanently added 'github.com' (ED25519) to the list of known hosts.
+Enter passphrase for key '/home/muhannad2024/.ssh/muhannad2024.predator': "oovoo0ahwongew8iedo1Ohcahwohk0Eiw|oh9yee"
+Enter passphrase for key '/home/muhannad2024/.ssh/muhannad2024.predator': "oovoo0ahwongew8iedo1Ohcahwohk0Eiw|oh9yee"
+# remote: Enumerating objects: 157, done.
+# remote: Counting objects: 100% (104/104), done.
+# remote: Compressing objects: 100% (65/65), done.
+# remote: Total 157 (delta 58), reused 57 (delta 34), pack-reused 53 (from 1)
+# Receiving objects: 100% (157/157), 86.45 KiB | 549.00 KiB/s, done.
+# Resolving deltas: 100% (67/67), done.
+
+# - Push changes to remote repository
+cd KB-FEB24
+mkdir muhannad2024
+cd muhannad2024
+cd
+cd src/KB-FEB24/
+git status
+# On branch main
+# Your branch is up to date with 'origin/main'.
+
+
+# nothing added to commit but untracked files present (use "git add" to track)
+git checkout -b "muhannad2024_doc_verification"
+git add *
+git status
+# On branch muhannad2024_doc_verification
+# nothing to commit, working tree clean
+
+# Changes to be committed:
+#   (use "git restore --staged <file>..." to unstage)
+#         new file:   Group3/ali/github.ssh.access.winx.2024.06.14.sh
+git config --global user.name "muhannad2024"
+git config --global user.email no@email.com
+git commit -am "verify previous documentation"
+# On branch muhannad2024_doc_verification
+# nothing to commit, working tree clean
+
+# nothing to commit, working tree clean
+git push --set-upstream origin muhannad2024_doc_verification
+
+# Enter passphrase for key '/home/muhannad2024/.ssh/muhannad2024.predator':
+# Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+# remote:
+# remote: Create a pull request for 'muhannad2024_doc_verification' on GitHub by visiting:
+# remote:      https://github.com/JensenEducationKista/KB-FEB24/pull/new/muhannad2024_doc_verification
+# remote:
+# To github.com:JensenEducationKista/KB-FEB24.git
+#  * [new branch]      muhannad2024_doc_verification -> muhannad2024_doc_verification
+# Branch 'muhannad2024_doc_verification' set up to track remote branch 'muhannad2024_doc_verification' from 'origin'.
