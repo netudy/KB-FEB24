@@ -46,6 +46,24 @@ cat <<"EOF" > /home/hlibko/.ssh/authorized_keys
 ssh-rsa AAA****
 EOF
 
+# Create ssh config (only for linux/windows environments, OSX won't need)
+cat <<"EOF" > /home/hlibko/.ssh/config
+# GitHub
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/DESKTOP-R272VD1
+
+# OpenBSD
+Host <IP-adress>
+  HostName <IP-adress>
+  IdentityFile ~/.ssh/DESKTOP-R272VD1
+EOF
+
+# Set the correct permissions for the user's home directory and SSH keys
 chmod 750 /home/hlibko/
+chmod 600 /home/hlibko/.ssh/authorized_keys
+
+# Verify the SHA256 checksum of the authorized_keys file
 sha256 /home/hlibko/.ssh/authorized_keys
 # SHA256 (/home/hlibko/.ssh/authorized_keys) = af6ba092fd04ff4ca61fb9c1fac628b437cab48eca2182230b588cfd2fc1b99f
