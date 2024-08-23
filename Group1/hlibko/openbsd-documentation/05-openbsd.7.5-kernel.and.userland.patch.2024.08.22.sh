@@ -93,3 +93,31 @@ cd /usr/src/lib/libcrypto
 EOF
 
 time sh /etc/do_patch_all.sh
+
+# /home/src/lib/libexpat/obj -> /usr/obj/lib/libexpat
+# /bin/sh /usr/src/lib/libexpat/generate_pkgconfig.sh -c /usr/src/lib/libexpat -o /usr/src/lib/libexpat/obj
+# cc -O2 -pipe -g -I/usr/src/lib/libexpat -fvisibility=hidden -DXML_ENABLE_VISIBILITY=1  -MD -MP  -c /usr/src/lib/libexpat/lib/xmlparse.c -o xmlparse.o
+# cc -O2 -pipe -g -I/usr/src/lib/libexpat -fvisibility=hidden -DXML_ENABLE_VISIBILITY=1  -MD -MP  -c /usr/src/lib/libexpat/lib/xmltok.c -o xmltok.o
+# cc -O2 -pipe -g -I/usr/src/lib/libexpat -fvisibility=hidden -DXML_ENABLE_VISIBILITY=1  -MD -MP  -c /usr/src/lib/libexpat/lib/xmlrole.c -o xmlrole.o
+# building standard expat library
+# ranlib libexpat.a
+# cc -O2 -pipe -g -I/usr/src/lib/libexpat -fvisibility=hidden -DXML_ENABLE_VISIBILITY=1  -MD -MP  -c -p /usr/src/lib/libexpat/lib/xmlparse.c -o xmlparse.po
+# cc -O2 -pipe -g -I/usr/src/lib/libexpat -fvisibility=hidden -DXML_ENABLE_VISIBILITY=1  -MD -MP  -c -p /usr/src/lib/libexpat/lib/xmltok.c -o xmltok.po
+# cc -O2 -pipe -g -I/usr/src/lib/libexpat -fvisibility=hidden -DXML_ENABLE_VISIBILITY=1  -MD -MP  -c -p /usr/src/lib/libexpat/lib/xmlrole.c -o xmlrole.po
+# building profiled expat library
+# ranlib libexpat_p.a
+# cc -O2 -pipe -g -I/usr/src/lib/libexpat -fvisibility=hidden -DXML_ENABLE_VISIBILITY=1  -MD -MP  -c -fpic -DPIC /usr/src/lib/libexpat/lib/xmlparse.c -o xmlparse.so
+# cc -O2 -pipe -g -I/usr/src/lib/libexpat -fvisibility=hidden -DXML_ENABLE_VISIBILITY=1  -MD -MP  -c -fpic -DPIC /usr/src/lib/libexpat/lib/xmltok.c -o xmltok.so
+# cc -O2 -pipe -g -I/usr/src/lib/libexpat -fvisibility=hidden -DXML_ENABLE_VISIBILITY=1  -MD -MP  -c -fpic -DPIC /usr/src/lib/libexpat/lib/xmlrole.c -o xmlrole.so
+# building shared expat library (version 14.1)
+# cc -shared -Wl,-soname,libexpat.so.14.1 -fpic -o libexpat.so.14.1  `echo xmlparse.so xmltok.so xmlrole.so | tr ' ' '\n' | sort -R`
+# install -c -o root -g bin  -m 444 /usr/src/lib/libexpat/obj/expat.pc /usr/lib/pkgconfig/
+# install -c -o root -g bin -m 600 libexpat.a  /usr/lib/libexpat.a
+# chmod 444 /usr/lib/libexpat.a
+# install -c -o root -g bin -m 600  libexpat_p.a /usr/lib
+# chmod 444 /usr/lib/libexpat_p.a
+# install -c -o root -g bin -m 444  libexpat.so.14.1 /usr/lib
+
+# real    25m9.140s
+# user    14m17.160s
+# sys     7m27.150s
