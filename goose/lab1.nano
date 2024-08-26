@@ -1,0 +1,415 @@
+#!/bin/sh
+echo This is a vodka-bottle-documentation, sorry, no automation at this time, :-/
+exit 1
+
+##########################################################
+# Windows Subsystem for Linux Installation
+##########################################################
+
+# - Open Windows PowerShell
+wsl --install -d ubuntu
+# Installing, this may take a few minutes...
+Enter new UNIX username: "goose"
+New password: "0000"
+Retype new password: "0000"
+# passwd: password updated successfully
+# Installation successful!
+# To run a command as administrator (user "root"), use "sudo <command>".
+# See "man sudo_root" for details.
+
+# Welcome to Ubuntu 22.04.3 LTS (GNU/Linux 5.15.153.1-microsoft-standard-WSL2 x86_64)
+
+#  * Documentation:  https://help.ubuntu.com
+#  * Management:     https://landscape.canonical.com
+#  * Support:        https://ubuntu.com/advantage
+
+
+# This message is shown once a day. To disable it please create the
+# /home/goose/.hushlogin file.
+
+# - Open WSL
+sudo apt update
+[sudo] password for hlibko: "123qwe"
+# Get:1 http://security.ubuntu.com/ubuntu jammy-security InRelease [129 kB]
+# Hit:2 http://archive.ubuntu.com/ubuntu jammy InRelease
+# Get:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [128 kB]
+# Get:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [127 kB]
+# Get:5 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [1769 kB]
+# Get:6 http://archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [14.1 MB]
+# Get:7 http://security.ubuntu.com/ubuntu jammy-security/main Translation-en [290 kB]
+# Get:8 http://security.ubuntu.com/ubuntu jammy-security/main amd64 c-n-f Metadata [13.2 kB]
+# Get:9 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [2308 kB]
+# Get:10 http://security.ubuntu.com/ubuntu jammy-security/restricted Translation-en [398 kB]
+# Get:11 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 c-n-f Metadata [572 B]
+# Get:12 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [890 kB]
+# Get:13 http://security.ubuntu.com/ubuntu jammy-security/universe Translation-en [175 kB]
+# Get:14 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 c-n-f Metadata [19.0 kB]
+# Get:15 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [37.2 kB]
+# Get:16 http://security.ubuntu.com/ubuntu jammy-security/multiverse Translation-en [7588 B]
+# Get:17 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 c-n-f Metadata [228 B]
+# Get:18 http://archive.ubuntu.com/ubuntu jammy/universe Translation-en [5652 kB]
+# Fetched 33.4 MB in 4s (9466 kB/s)
+# Reading package lists... Done
+# Building dependency tree... Done
+# Reading state information... Done
+# 128 packages can be upgraded. Run 'apt list --upgradable' to see them.
+
+sudo apt upgrade -y
+# Reading package lists... Done
+# Building dependency tree... Done
+# Reading state information... Done
+# Calculating upgrade... Done
+# The following NEW packages will be installed:
+#   ubuntu-pro-client
+# The following packages have been kept back:
+#   python3-update-manager update-manager-core
+# The following packages will be upgraded:
+#   apport apt apt-utils base-files bash bind9-dnsutils
+#   bind9-host bind9-libs binutils binutils-common
+#   binutils-x86-64-linux-gnu bsdextrautils bsdutils
+#   busybox-static coreutils cpio curl distro-info
+#   distro-info-data dpkg e2fsprogs eject git git-man
+#   iptables irqbalance less libapt-pkg6.0 libbinutils
+#   libblkid1 libc-bin libc6 libcom-err2 libcryptsetup12
+#   libctf-nobfd0 libctf0 libcurl3-gnutls libcurl4 libexpat1
+#   libext2fs2 libglib2.0-0 libglib2.0-bin libglib2.0-data
+#   libgnutls30 libgssapi-krb5-2 libip4tc2 libip6tc2
+#   libk5crypto3 libkrb5-3 libkrb5support0 libldap-2.5-0
+#   libldap-common libmount1 libnetplan0 libnghttp2-14
+#   libnss-systemd libpam-modules libpam-modules-bin
+#   libpam-runtime libpam-systemd libpam0g libperl5.34
+#   libpython3-stdlib libpython3.10 libpython3.10-minimal
+#   libpython3.10-stdlib libsmartcols1 libsqlite3-0 libss2
+#   libssh-4 libssl3 libsystemd0 libudev1 libuuid1 libuv1
+#   libxml2 libxtables12 locales login logsave
+#   motd-news-config mount netplan.io openssh-client openssl
+#   passwd perl perl-base perl-modules-5.34
+#   python-apt-common python3 python3-apport python3-apt
+#   python3-cryptography python3-distro-info
+#   python3-distupgrade python3-minimal
+#   python3-problem-report python3-software-properties
+#   python3-zipp python3.10 python3.10-minimal snapd
+#   software-properties-common systemd systemd-hwe-hwdb
+#   systemd-sysv systemd-timesyncd tar tcpdump tzdata
+#   ubuntu-advantage-tools ubuntu-minimal
+#   ubuntu-pro-client-l10n ubuntu-release-upgrader-core
+#   ubuntu-standard ubuntu-wsl udev util-linux uuid-runtime
+#   vim vim-common vim-runtime vim-tiny wget xxd
+# 126 upgraded, 1 newly installed, 0 to remove and 2 not upgraded.
+# 71 standard LTS security updates
+# Need to get 101 MB of archives.
+# After this operation, 1739 kB of additional disk space will be used.
+# Get:1 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 motd-news-config all 12ubuntu4.6 [4352 B]
+# Get:2 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libc6 amd64 2.35-0ubuntu3.8 [3235 kB]
+# Get:3 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 base-files amd64 12ubuntu4.6 [62.5 kB]
+# [...]
+# Get:125 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 snapd amd64 2.63+22.04ubuntu0.1 [25.9 MB]
+# Get:126 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 systemd-hwe-hwdb all 249.11.5 [3228 B]
+# Get:127 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 ubuntu-wsl amd64 1.481.3 [2586 B]
+# Fetched 101 MB in 3s (32.9 MB/s)
+# Extracting templates from packages: 100%
+# Preconfiguring packages ...
+# [...]
+# Setting up apport (2.20.11-0ubuntu82.6) ...
+# apport-autoreport.service is a disabled or a static unit, not starting it.
+# Setting up ubuntu-advantage-tools (32.3.1~22.04) ...
+# Setting up ubuntu-minimal (1.481.3) ...
+# Setting up ubuntu-wsl (1.481.3) ...
+# Processing triggers for man-db (2.10.2-1) ...
+# Processing triggers for plymouth-theme-ubuntu-text (0.9.5+git20211018-1ubuntu3) ...
+# Processing triggers for dbus (1.12.20-2ubuntu4.1) ...
+# Processing triggers for install-info (6.8-4build1) ...
+# Processing triggers for libc-bin (2.35-0ubuntu3.8) ...
+
+# - install python
+sudo apt install python3-pip
+# Reading package lists... Done
+# Building dependency tree... Done
+# Reading state information... Done
+# The following additional packages will be installed:
+#   build-essential bzip2 cpp cpp-11 dpkg-dev fakeroot
+#   fontconfig-config fonts-dejavu-core g++ g++-11 gcc
+#   gcc-11 gcc-11-base javascript-common
+#   libalgorithm-diff-perl libalgorithm-diff-xs-perl
+#   libalgorithm-merge-perl libasan6 libatomic1 libc-dev-bin
+#   libc-devtools libc6-dev libcc1-0 libcrypt-dev
+#   libdeflate0 libdpkg-perl libexpat1-dev libfakeroot
+#   libfile-fcntllock-perl libfontconfig1 libfreetype6
+#   libgcc-11-dev libgd3 libgomp1 libisl23 libitm1 libjbig0
+#   libjpeg-turbo8 libjpeg8 libjs-jquery libjs-sphinxdoc
+#   libjs-underscore liblsan0 libmpc3 libnsl-dev
+#   libpython3-dev libpython3.10-dev libquadmath0
+#   libstdc++-11-dev libtiff5 libtirpc-dev libtsan0
+#   libubsan1 libwebp7 libxpm4 linux-libc-dev
+#   lto-disabled-list make manpages-dev python3-dev
+#   python3-distutils python3-lib2to3 python3-setuptools
+#   python3-wheel python3.10-dev rpcsvc-proto zlib1g-dev
+# Suggested packages:
+#   bzip2-doc cpp-doc gcc-11-locales debian-keyring
+#   g++-multilib g++-11-multilib gcc-11-doc gcc-multilib
+#   autoconf automake libtool flex bison gdb gcc-doc
+#   gcc-11-multilib apache2 | lighttpd | httpd glibc-doc bzr
+#   libgd-tools libstdc++-11-doc make-doc
+#   python-setuptools-doc
+# The following NEW packages will be installed:
+#   build-essential bzip2 cpp cpp-11 dpkg-dev fakeroot
+#   fontconfig-config fonts-dejavu-core g++ g++-11 gcc
+#   gcc-11 gcc-11-base javascript-common
+#   libalgorithm-diff-perl libalgorithm-diff-xs-perl
+#   libalgorithm-merge-perl libasan6 libatomic1 libc-dev-bin
+#   libc-devtools libc6-dev libcc1-0 libcrypt-dev
+#   libdeflate0 libdpkg-perl libexpat1-dev libfakeroot
+#   libfile-fcntllock-perl libfontconfig1 libfreetype6
+#   libgcc-11-dev libgd3 libgomp1 libisl23 libitm1 libjbig0
+#   libjpeg-turbo8 libjpeg8 libjs-jquery libjs-sphinxdoc
+#   libjs-underscore liblsan0 libmpc3 libnsl-dev
+#   libpython3-dev libpython3.10-dev libquadmath0
+#   libstdc++-11-dev libtiff5 libtirpc-dev libtsan0
+#   libubsan1 libwebp7 libxpm4 linux-libc-dev
+#   lto-disabled-list make manpages-dev python3-dev
+#   python3-distutils python3-lib2to3 python3-pip
+#   python3-setuptools python3-wheel python3.10-dev
+#   rpcsvc-proto zlib1g-dev
+# 0 upgraded, 68 newly installed, 0 to remove and 2 not upgraded.
+# Need to get 72.2 MB of archives.
+# After this operation, 243 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+# Get:1 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libc-dev-bin amd64 2.35-0ubuntu3.8 [20.3 kB]
+# Get:2 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 linux-libc-dev amd64 5.15.0-119.129 [1318 kB]
+# Get:3 http://archive.ubuntu.com/ubuntu jammy/main amd64 libcrypt-dev amd64 1:4.4.27-1 [112 kB]
+# [...]
+# Get:67 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 python3-wheel all 0.37.1-2ubuntu0.22.04.1 [32.0 kB]
+# Get:68 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 python3-pip all 22.0.2+dfsg-1ubuntu0.4 [1305 kB]
+# Fetched 72.2 MB in 5s (15.6 MB/s)
+# Extracting templates from packages: 100%
+# Selecting previously unselected package libc-dev-bin.
+# (Reading database ... 24242 files and directories currently installed.)
+# Preparing to unpack .../00-libc-dev-bin_2.35-0ubuntu3.8_amd6
+# 4.deb ...
+# Unpacking libc-dev-bin (2.35-0ubuntu3.8) ...
+# [...]
+# update-alternatives: using /usr/bin/g++ to provide /usr/bin/c++ (c++) in auto mode
+# Setting up build-essential (12.9ubuntu3) ...
+# Setting up libpython3-dev:amd64 (3.10.6-1~22.04.1) ...
+# Setting up python3-dev (3.10.6-1~22.04.1) ...
+# Processing triggers for man-db (2.10.2-1) ...
+# Processing triggers for libc-bin (2.35-0ubuntu3.8) ...
+##########################################################
+# install password generator and ssh
+##########################################################
+
+# - install password generator
+sudo apt install pwgen
+# Selecting previously unselected package pwgen.
+# (Reading database ... 31447 files and directories currently installed.)
+# Preparing to unpack .../pwgen_2.08-2build1_amd64.deb ...
+# Unpacking pwgen (2.08-2build1) ...
+# Setting up pwgen (2.08-2build1) ...
+# Processing triggers for man-db (2.10.2-1) ...
+
+# - create a password 40 chars, numbers and symbols
+pwgen -y -n 40
+# aelee^y=ae8ooph8viYah9ier3ui2phae\g?oj3o
+# eito2hicu_ogohth+ah2Iej3thahz6echai0Eex!
+# iu4go]Viz7eey5rahcho0oKe(pahdoo4ahm2axah
+# ieV7ie!sh/ien5TaC9op6Waisooz$oo3tafegoBu
+# eiche'b2jeifaiMei!jaeVou_j9wieyooYoh#y4I
+# eo9chai6za6iebohNga2no3Teil3feilud(ei0ei
+# in5Pheam9nei"y9sher4wiTahwac2oPheTeayieD
+# jaecee2eezooqu0JeiNge\o7iew0ooch4aiS@o6n
+# Aez8Aen9voi^jahk1Eese%th3koo~f:ia+dooye0
+# meina7aer6douwae4oolae6vi|ngei2ahn2She8s
+# chie0ooCh8Ae3Iasisee}tai2eerae0feem:ooru
+# see\quoogh4Ohshuyei8kiemei3noo?ng9xaMeiy
+# aiGo5eeph8suat2goh6AeC"eg0ook+e7ac7ooHex
+# aomae_l2ooNuephaingae5eijahph8Iy4vei,s0j
+# Ahlil6Fa3Iep9vu2daePhai3teisae+Po,reida8
+# IeX8gou6ooT6Uwoo4Iepeeyah8chaab/ieC|oh4Z
+# Xa5VooleeruKieb8ei=daeTooD2Jor5Ahphoh|x0
+# aesh9agee&shahr1vaiqueiLo1aevoh6dohm9eim
+# Thoogh8Bah0eeJ5aev8eiphai1johcooKie6vei,
+# uphe1Ohw2oopecha3fu6au\j4Oht_ie2aiz7eegh
+
+##########################################################
+# Get ready to setup github access with ssh
+##########################################################
+
+# - check if ssh service is running
+sudo service ssh status
+# [sudo] password for goose:
+# Unit ssh.service could not be found.
+
+# - in wsl install openssh
+sudo apt install openssh-server
+# Reading package lists... Done
+# Building dependency tree... Done
+# Reading state information... Done
+# The following additional packages will be installed:
+#   libwrap0 ncurses-term openssh-sftp-server ssh-import-id
+# Suggested packages:
+#   molly-guard monkeysphere ssh-askpass
+# The following NEW packages will be installed:
+#   libwrap0 ncurses-term openssh-server openssh-sftp-server
+#   ssh-import-id
+# 0 upgraded, 5 newly installed, 0 to remove and 2 not upgraded.
+# Need to get 799 kB of archives.
+# After this operation, 6157 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+# [...]
+
+# - create keypair
+cd
+mkdir .ssh
+chmod 740 .ssh/
+ssh-keygen -t rsa -b 4096 -f ~/.ssh/`hostname` -C `hostname`
+# Generating public/private rsa key pair.
+Enter passphrase (empty for no passphrase): "aelee^y=ae8ooph8viYah9ier3ui2phae\g?oj3o"
+Enter same passphrase again: "aelee^y=ae8ooph8viYah9ier3ui2phae\g?oj3o"
+# Generating public/private rsa key pair.
+# Enter passphrase (empty for no passphrase):
+# Enter same passphrase again:
+# Your identification has been saved in /home/goose/.ssh/LAPTOP-8KN9M0IC
+# Your public key has been saved in /home/goose/.ssh/LAPTOP-8KN9M0IC.pub
+# The key fingerprint is:
+# SHA256:LtxPkff5IdBDfc+tf2ZgsZv27asFpF9qhEM0FqK4a90 LAPTOP-8KN9M0IC
+# The key's randomart image is:
+# +---[RSA 4096]----+
+# |         . =.    |
+# |      . . + . .  |
+# |     . .   . o ..|
+# |      .   ..* ..+|
+# |     .  S o=.= ++|
+# |     .oo.  o=.Oo |
+# |     oo.oE.  *+* |
+# |    .  . o  . *o*|
+# |          .  o.*O|
+# +----[SHA256]-----+
+
+# - start ssh service
+sudo service ssh start
+
+# - allow ssh in firewall (inte behövs)
+sudo ufw allow ssh
+# Rules updated
+# Rules updated (v6)
+
+##########################################################
+# Upload public keypair to github
+##########################################################
+
+# - install git
+sudo apt install git
+# Reading package lists... Done
+# Building dependency tree... Done
+# Reading state information... Done
+# git is already the newest version (1:2.34.1-1ubuntu1.11).
+# git set to manually installed.
+# 0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+
+# - fetch pubkey
+cat .ssh/LAPTOP-8KN9M0IC.pub
+# ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC**********LAPTOP-8KN9M0IC== LAPTOP-8KN9M0IC
+
+# - upload to github
+"https://github.com/settings/ssh/new"
+
+# - add new SSH Key
+# Title
+"LAPTOP-8KN9M0IC"
+
+# Key type
+"[Authentication Key↕]"
+
+# Key
+"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC**********LAPTOP-8KN9M0IC == LAPTOP-8KN9M0IC"
+
+"Add SSH key"
+
+# - create ssh config file
+cat <<"EOF" > ~/.ssh/config
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/LAPTOP-8KN9M0IC
+EOF
+
+# - verify
+cat ~/.ssh/config
+# Host github.com
+# HostName github.com
+# User git
+# IdentityFile ~/.ssh/LAPTOP-8KN9M0IC
+
+# - Create source directory
+cd
+mkdir src && cd src
+
+##########################################################
+# clone and push to github
+##########################################################
+
+# - Clone repo
+git clone git@github.com:JensenEducationKista/KB-FEB24.git
+# Cloning into 'KB-FEB24'...
+# The authenticity of host 'github.com (140.82.121.3)' can't be established.
+# ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
+# This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? "yes"
+# Warning: Permanently added 'github.com' (ED25519) to the list of known hosts.
+Enter passphrase for key '/home/goose/.ssh/LAPTOP-8KN9M0IC': "aelee^y=ae8ooph8viYah9ier3ui2phae\g?oj3o"
+# remote: Enumerating objects: 211, done.
+# remote: Counting objects: 100% (158/158), done.
+# remote: Compressing objects: 100% (94/94), done.
+# remote: Total 211 (delta 83), reused 97 (delta 47), pack-reused 53 (from 1)
+# Receiving objects: 100% (211/211), 101.40 KiB | 596.00 KiB/s, done.
+# Resolving deltas: 100% (92/92), done.
+
+# - Push changes to remote repository
+cd KB-FEB24
+mkdir goose && cd goose
+git status
+# On branch main
+# Your branch is up to date with 'origin/main'.
+
+# nothing to commit, working tree clean
+
+git checkout -b "goose_doc_verification"
+# Switched to a new branch 'goose_doc_verification'
+# - IMPORTANT:
+# - Create a file with "nano" or "vi", paste this documentation there
+
+# - then add newly created file
+
+# - verify file
+cat github.ssh.access.winx.2024.08.14.sh
+git add *
+git status
+# On branch hlibko_doc_verification
+# Changes to be committed:
+#   (use "git restore --staged <file>..." to unstage)
+#         new file:   github.ssh.access.winx.2024.08.14.sh
+
+git config --global user.name "Hlib Kochubei"
+git config --global user.email "hlib.kochubei@gmail.com"
+
+git commit -am "Make changes to previous documentation"
+git status
+# On branch hlibko_doc_verification
+# nothing to commit, working tree clean
+
+git push --set-upstream origin hlibko_doc_verification
+# Enter passphrase for key '/home/hlibko/.ssh/DESKTOP-R272VD1':
+# Enumerating objects: 5, done.
+# Counting objects: 100% (5/5), done.
+# Delta compression using up to 4 threads
+# Compressing objects: 100% (4/4), done.
+# Writing objects: 100% (4/4), 5.45 KiB | 5.45 MiB/s, done.
+# Total 4 (delta 1), reused 0 (delta 0), pack-reused 0
+# remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+# remote:
+# remote: Create a pull request for 'hlibko_doc_verification' on GitHub by visiting:
+# remote:      https://github.com/JensenEducationKista/KB-FEB24/pull/new/hlibko_doc_verification
+# remote:
+# To github.com:JensenEducationKista/KB-FEB24.git
+#  * [new branch]      hlibko_doc_verification -> hlibko_doc_verification
+# Branch 'hlibko_doc_verification' set up to track remote branch 'hlibko_doc_verification' from 'origin'.
