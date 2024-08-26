@@ -1,4 +1,4 @@
-#!/bin/sh
+/bin/sh
 echo This is a vodka-bottle-documentation, sorry, no automation at this time, :-/
 exit 1
 
@@ -376,40 +376,43 @@ git status
 git checkout -b "goose_doc_verification"
 # Switched to a new branch 'goose_doc_verification'
 # - IMPORTANT:
-# - Create a file with "nano" or "vi", paste this documentation there
+# - Create a file with "nano" or "vi", paste this documentation there (lab1.nano  for exaple)
 
 # - then add newly created file
 
 # - verify file
-cat github.ssh.access.winx.2024.08.14.sh
-git add *
+cat lab1.nano
+git add lab1.nano
 git status
-# On branch hlibko_doc_verification
+# On branch goose_doc_verification
 # Changes to be committed:
 #   (use "git restore --staged <file>..." to unstage)
-#         new file:   github.ssh.access.winx.2024.08.14.sh
+#         new file:   lab1.nano
 
-git config --global user.name "Hlib Kochubei"
-git config --global user.email "hlib.kochubei@gmail.com"
+git config --global user.name "Goose-1977"
+git config --global user.email "n.gusev.1977@hotmail.com"
 
-git commit -am "Make changes to previous documentation"
+git commit -am "Check everything again!"
 git status
-# On branch hlibko_doc_verification
+# On branch goose_doc_verification
 # nothing to commit, working tree clean
 
-git push --set-upstream origin hlibko_doc_verification
-# Enter passphrase for key '/home/hlibko/.ssh/DESKTOP-R272VD1':
+git push --set-upstream origin goose_doc_verification
+Enter passphrase for key '/home/goose/.ssh/LAPTOP-8KN9M0IC': "aelee^y=ae8ooph8viYah9ier3ui2phae\g?oj3o"
+
 # Enumerating objects: 5, done.
 # Counting objects: 100% (5/5), done.
 # Delta compression using up to 4 threads
-# Compressing objects: 100% (4/4), done.
-# Writing objects: 100% (4/4), 5.45 KiB | 5.45 MiB/s, done.
+# Compressing objects: 100% (3/3), done.
+# Writing objects: 100% (4/4), 6.11 KiB | 1.53 MiB/s, done.
 # Total 4 (delta 1), reused 0 (delta 0), pack-reused 0
 # remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+# remote: This repository moved. Please use the new location:
+# remote:   git@github.com:netudy/KB-FEB24.git
 # remote:
-# remote: Create a pull request for 'hlibko_doc_verification' on GitHub by visiting:
-# remote:      https://github.com/JensenEducationKista/KB-FEB24/pull/new/hlibko_doc_verification
+# remote: Create a pull request for 'goose_doc_verification' on GitHub by visiting:
+# remote:      https://github.com/netudy/KB-FEB24/pull/new/goose_doc_verification
 # remote:
 # To github.com:JensenEducationKista/KB-FEB24.git
-#  * [new branch]      hlibko_doc_verification -> hlibko_doc_verification
-# Branch 'hlibko_doc_verification' set up to track remote branch 'hlibko_doc_verification' from 'origin'.
+#  * [new branch]      goose_doc_verification -> goose_doc_verification
+# Branch 'goose_doc_verification' set up to track remote branch 'goose_doc_verification' from 'origin'.
