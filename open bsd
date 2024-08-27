@@ -1,0 +1,209 @@
+niloo@Niloo:~$ ssh root@10.49.84.210
+The authenticity of host '10.49.84.210 (10.49.84.210)' can't be established.
+ED25519 key fingerprint is SHA256:CdJTb86UbxybkafgMY27h65SYMwLbOAkBz3RfKMPxe4.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '10.49.84.210' (ED25519) to the list of known hosts.
+root@10.49.84.210's password:
+Last login: Tue Aug 27 09:45:19 2024
+OpenBSD 7.2 (GENERIC) #728: Tue Sep 27 11:49:18 MDT 2022
+
+Welcome to OpenBSD: The proactively secure Unix-like operating system.
+
+Please use the sendbug(1) utility to report bugs in the system.
+Before reporting a bug, please try to reproduce it with the latest
+version of the code.  With bug reports, please try to ensure that
+enough information to reproduce the problem is enclosed, and if a
+known fix for it exists, include that as well.
+
+FWA# mkdir -p `pwd`/RCS
+FWA# ln -s `pwd`/RCS /etc/doas,RCS
+FWA# mkdir -p /etc/doas
+FWA# ci -t- -u /etc/doas
+/etc/doas,v  <--  /etc/doas
+FWA# co -l /etc/doas
+/etc/doas,v  -->  /etc/doas
+no revisions present; generating empty revision 0.0
+writable /etc/doas exists; remove it? [ny](n): yes
+no revisions, so nothing can be locked
+co: /etc/doas: Is a directory
+FWA# co -l /etc/doas
+/etc/doas,v  -->  /etc/doas
+no revisions present; generating empty revision 0.0
+writable /etc/doas exists; remove it? [ny](n): no
+co: writable /etc/doas exists; checkout aborted
+FWA# cat <<"EOF" > /etc/doas.conf
+> permit nopass keepenv :wheel
+> EOF
+FWA# ci -t- -m"Enabled doas for wheel users." -u /etc/doas
+/etc/doas,v  <--  /etc/doas
+FWA# chmod 440 /etc/doas
+FWA# useradd -m netudy
+FWA# usermod -G wheel netudy
+FWA# chsh -s /usr/local/bin/bash netudy
+FWA# cat <<"EOF" > /home/netudy/.ssh/authorized_keys
+JcK39LJ62ZbQnx5zb65PWIXw1IMYywjSE3jNUKjSTW/yF+tbo2bjxj+5w== niloo@Niloo   <
+> EOF
+FWA# cat <<"EOF" > /home/netudy/.ssh/config
+> # GitHub
+> Host github.com
+>   HostName github.com
+>   User git
+>   IdentityFile ~/.ssh/netudy.wsl
+>
+> # OpenBSD
+> Host 10.49.90.84.210
+>   HostName 10.49.84.210
+>   IdentityFile ~/.ssh/netudy.wsl
+> EOF
+FWA# chmod 750 /home/netudy/
+FWA# chmod 600 /home/netudy/.ssh/authorized_keys
+FWA# sha256 /home/netudy/.ssh/authorized_keys
+SHA256 (/home/netudy/.ssh/authorized_keys) = 5b6dd6ecbd5975129e86ab34d76be528203a4efc2d9d8f78f65c92731195c793
+sd.org/pub/OpenBSD/`uname -r`/packages/`machine -a`/                      <
+FWA# cat <<"EOF" | while read package; do pkg_add -v $package; done
+> bash-5.1.16.tgz
+> wget-1.21.3.tgz
+> emacs-28.2-no_x11.tgz
+> pftop-0.7p19.tgz
+> nmap-7.91p2.tgz
+> ifstat-1.1p5.tgz
+> minicom-2.8.tgz
+> picocom-3.1.tgz
+> conserver-8.2.7.tgz
+> screen-4.9.0.tgz
+> python-3.9.14.tgz
+> EOF
+quirks-6.42 signed on 2022-09-30T20:24:00Z
+quirks-6.42: ok
+bash-5.1.16:libiconv-1.17: ok
+bash-5.1.16:gettext-runtime-0.21p1: ok
+Shell /usr/local/bin/bash appended to /etc/shells
+bash-5.1.16: ok
+Update candidates: quirks-6.42 -> quirks-6.42
+quirks-6.42 signed on 2022-09-30T20:24:00Z
+wget-1.21.3:libunistring-0.9.7: ok
+wget-1.21.3:libidn2-2.3.0p0: ok
+wget-1.21.3:bzip2-1.0.8p0: ok
+wget-1.21.3:pcre2-10.37: ok
+wget-1.21.3:libpsl-0.21.1: ok
+wget-1.21.3: ok
+Update candidates: quirks-6.42 -> quirks-6.42
+quirks-6.42 signed on 2022-09-30T20:24:00Z
+emacs-28.2-no_x11:gmp-6.2.1p0: ok
+emacs-28.2-no_x11:lz4-1.9.4: ok
+emacs-28.2-no_x11:xz-5.2.5p2: ok
+emacs-28.2-no_x11:zstd-1.5.2: ok
+emacs-28.2-no_x11:brotli-1.0.9p0: ok
+emacs-28.2-no_x11:libtasn1-4.19.0: ok
+emacs-28.2-no_x11:libffi-3.4.2: ok
+emacs-28.2-no_x11:p11-kit-0.24.1: ok
+emacs-28.2-no_x11:libunbound-1.16.3: ok
+emacs-28.2-no_x11:libnettle-3.8.1: ok
+emacs-28.2-no_x11:gnutls-3.7.7: ok
+emacs-28.2-no_x11:libxml-2.10.2: ok
+emacs-28.2-no_x11:jansson-2.14: ok
+emacs-28.2-no_x11: ok
+Running tags: ok
+New and changed readme(s):
+        /usr/local/share/doc/pkg-readmes/emacs
+Update candidates: quirks-6.42 -> quirks-6.42
+quirks-6.42 signed on 2022-09-30T20:24:00Z
+pftop-0.7p19: ok
+Update candidates: quirks-6.42 -> quirks-6.42
+quirks-6.42 signed on 2022-09-30T20:24:00Z
+nmap-7.91p2:pcre-8.44: ok
+nmap-7.91p2:lua-5.3.6: ok
+nmap-7.91p2:libssh2-1.10.0p0: ok
+nmap-7.91p2: ok
+Update candidates: quirks-6.42 -> quirks-6.42
+quirks-6.42 signed on 2022-09-30T20:24:00Z
+ifstat-1.1p5: ok
+Update candidates: quirks-6.42 -> quirks-6.42
+quirks-6.42 signed on 2022-09-30T20:24:00Z
+minicom-2.8:lrzsz-0.12.20p2: ok
+minicom-2.8:kermit-9.0.302p0: ok
+minicom-2.8: ok
+Update candidates: quirks-6.42 -> quirks-6.42
+quirks-6.42 signed on 2022-09-30T20:24:00Z
+picocom-3.1: ok
+Update candidates: quirks-6.42 -> quirks-6.42
+quirks-6.42 signed on 2022-09-30T20:24:00Z
+conserver-8.2.7: ok
+The following new rcscripts were installed: /etc/rc.d/conserver
+See rcctl(8) for details.
+New and changed readme(s):
+        /usr/local/share/doc/pkg-readmes/conserver
+Update candidates: quirks-6.42 -> quirks-6.42
+quirks-6.42 signed on 2022-09-30T20:24:00Z
+screen-4.9.0: ok
+Update candidates: quirks-6.42 -> quirks-6.42
+quirks-6.42 signed on 2022-09-30T20:24:00Z
+python-3.9.14:sqlite3-3.39.3: ok
+python-3.9.14: ok
+FWA# ln -sf /usr/local/bin/python3.9 /usr/bin/python3
+FWA# cd /etc/ssh/
+FWA# mkdir -pm700 `pwd`/RCS
+FWA# ln -s `pwd`/RCS /etc/ssh/RCS
+FWA# ci -t- -u /etc/ssh/sshd_config
+/etc/ssh/RCS/sshd_config,v  <--  /etc/ssh/sshd_config
+initial revision: 1.1
+done
+FWA# co -l /etc/ssh/sshd_config
+/etc/ssh/RCS/sshd_config,v  -->  /etc/ssh/sshd_config
+revision 1.1 (locked)
+done
+FWA# cat <<EOF | patch -p0
+>  ===================================================================
+> RCS file: /etc/ssh/RCS/sshd_config,v
+> retrieving revision 1.1
+> diff -u -r1.1 /etc/ssh/sshd_config
+> --- /etc/ssh/sshd_config        2021/07/02 05:11:21     1.1
+> +++ /etc/ssh/sshd_config        2024/08/20 01:51:13
+> @@ -1,4 +1,4 @@
+> -#      $OpenBSD: sshd_config,v 1.104 2021/07/02 05:11:21 dtucker Exp $
+> +#      $OpenBSD: sshd_config,v 1.104 2021/07/02 05:11:21 dtucker Exp $
+>
+> # This is the sshd server system-wide configuration file.  See
+> # sshd_config(5) for more information.
+> @@ -35,7 +35,7 @@
+>  # Authentication:
+>
+>  #LoginGraceTime 2m
+> -PermitRootLogin yes
+> +PermitRootLogin no
+>  #StrictModes yes
+>  #MaxAuthTries 6
+>  #MaxSessions 10
+> @@ -63,7 +63,7 @@
+>  #IgnoreRhosts yes
+>
+>  # To disable tunneled clear text passwords, change to no here!
+> -#PasswordAuthentication yes
+> +PasswordAuthentication no
+>  #PermitEmptyPasswords no
+>
+>  # Change to no to disable s/key passwords
+> EOF
+Hmm...  Looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+| ===================================================================
+|RCS file: /etc/ssh/RCS/sshd_config,v
+|retrieving revision 1.1
+|diff -u -r1.1 /etc/ssh/sshd_config
+|--- /etc/ssh/sshd_config        2021/07/02 05:11:21     1.1
+|+++ /etc/ssh/sshd_config        2024/08/20 01:51:13
+--------------------------
+Patching file /etc/ssh/sshd_config using Plan A...
+patch: **** malformed patch at line 11: # This is the sshd server system-wide configuration file.  See
+FWA# ci -t- -m"Securing SSH" -u /etc/ssh/sshd_config
+/etc/ssh/RCS/sshd_config,v  <--  /etc/ssh/sshd_config
+file is unchanged; reverting to previous revision 1.1
+done
+FWA# kill -HUP `cat /var/run/sshd.pid`
+FWA# ssh netudy@10.49.84.210
+The authenticity of host '10.49.84.210 (10.49.84.210)' can't be established.
+ED25519 key fingerprint is SHA256:CdJTb86UbxybkafgMY27h65SYMwLbOAkBz3RfKMPxe4.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])?    
