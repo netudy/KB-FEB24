@@ -208,8 +208,8 @@ ssh-keygen -t rsa -b 4096 -f ~/.ssh/mbp
 Enter passphrase (empty for no passphrase): "aezook2ori7euriePh8ohV0Zi-xubohN7biiw7It"
 Enter same passphrase again: "aezook2ori7euriePh8ohV0Zi-xubohN7biiw7It"
 # Enter same passphrase again:
-# Your identification has been saved in /home/clear/.ssh/hp.envy
-# Your public key has been saved in /home/clear/.ssh/hp.envy.pub
+# Your identification has been saved in /home/clear/.ssh/mbp
+# Your public key has been saved in /home/clear/.ssh/mbp.pub
 # The key fingerprint is:
 # SHA256:jFWw0HwOPYdQ04wWVx4BL3u6uYPOHJ/OJnOxRA3PdBM clear@DESKTOP-3OIK1FQ
 # The key's randomart image is:
@@ -287,7 +287,66 @@ Enter passphrase for key '/home/clear/.ssh/mbp':
 # Resolving deltas: 100% (5/5), done.
 
 # - Push changes to remote repository
+# # - Push changes to remote repository
 cd KB-FEB24
 mkdir asal
 cd asal
+cd
+cd src/KB-FEB24/
 git status
+# # On branch main
+# # Your branch is up to date with 'origin/main'.
+
+# # nothing to commit, working tree clean
+
+cd asal
+git checkout -b "asal_doc_verification"
+# # Switched to a new branch 'francisco_doc_verification'
+
+# # - IMPORTANT:
+# # - Create a file with "nano" or "vi", paste this documentation there
+
+# # then add newly created file
+git add *
+git status
+# # On branch francisco_doc_verification
+# # nothing to commit, working tree clean
+git config --global user.name "Asal Lalehgani"
+git config --global user.email "asal.lalegani.sa@gmail.com"
+git commit -am "verify previous documentation"
+# # On branch asal_doc_verification
+# # nothing to commit, working tree clean
+
+# # nothing to commit, working tree clean
+# git push --set-upstream origin francisco_doc_verification
+# Enter passphrase for key '/home/francisco/.ssh/lenovo': "phiuxu4phoi6Te8queizo4aec%ee7aezee6xaeVa"
+# # Branch 'francisco_doc_verification' set up to track remote branch 'francisco_doc_verification' from 'origin'.
+# # Everything up-to-date
+
+git add github.ssh.access.winx.2024.08.13.sh
+git status
+# On branch francisco_doc_verification
+# Changes to be committed:
+#   (use "git restore --staged <file>..." to unstage)
+#         new file:   github.ssh.access.winx.2024.08.13.sh
+
+git config --global user.name "Francisco gtz"
+git config --global user.email no@email.com
+git commit -am "verify previous documentation"
+ # 1 file changed, 253 insertions(+)
+  # create mode 100644 francisco/github.ssh.access.winx.2024.08.13.sh
+
+  # nothing to commit, working tree clean
+  git push --set-upstream origin francisco_doc_verification
+  Enter passphrase for key '/home/francisco/.ssh/lenovo': "phiuxu4phoi6Te8queizo4aec%ee7aezee6xaeVa"
+  # Enumerating objects: 5, done.
+  # Counting objects: 100% (5/5), done.
+  # Delta compression using up to 24 threads
+  # Compressing objects: 100% (4/4), done.
+  # Writing objects: 100% (4/4), 4.14 KiB | 4.14 MiB/s, done.
+  # Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+  # To github.com:JensenEducationKista/KB-FEB24.git
+  #    8d07dec..6ef5978  francisco_doc_verification -> francisco_doc_verification
+  # Branch 'francisco_doc_verification' set up to track remote branch 'francisco_doc_verification' from 'origin'.
+
+
